@@ -47,7 +47,7 @@
 
    酷安/Bilibili@某贼 帮助我们将一些镜像、文件转存到萤火虫资源站（但在2025.4.15结束了帮助）
 
-# 1.紫光展锐处理器部分机型深刷破解
+# 1.紫光展锐处理器全ud710机型深刷破解
 
 此破解方法基于将学习机的system分区备份并替换为破解完成或官方解锁之后的system分区以达到删除学习功能并自由安装软件的目的，理论上使用ud710-0芯片的机型应该能通刷
 
@@ -55,12 +55,14 @@
 
 * X2/Z1/Q1/X3Pro/老版本课堂版C6/C8
 * T10/T20/课堂版C8全系(理论)
+* [2026.1最新加入] Chip2三平台(TX20,SA30,SA30Pro)支持
 
 ## 1.1 下载您需要的文件
+
 * 驱动：在**本教程仓库-配套文件/展讯**下有"紫光驱动_R4.21.3201.zip"，在计算机上下载下来并解压，进入带Win10字样的目录，如果你是Win7/8，请进入带Win78字样的目录，然后点击双击打开DPInst64.exe或者DPInst32.exe（具体看电脑系统位数选32还是64，不会上bing自己搜）并无脑下一步完成安装过程
-* spd_dump（刷机工具）：去[nightly.link](https://nightly.link/TomKing062/spreadtrum_flash/workflows/build/main)下载最新x86的Dev_custdebug版本并**将zip文件解压到桌面或者其他位置的SPRD目录(目录等会要考)**
+* spd_dump（刷机工具）：去[nightly.link](https://nightly.link/TomKing062/action_spd_dump_it/workflows/build/main)下载最新x86_Release版本并**将zip文件解压到桌面或者其他位置的SPRD目录(目录等会要考)**
 * fdl文件：在**本教程仓库-配套文件/展讯/fdls/ud710**中存放了备份，两个文件全部下载下来即可
-* **酷安/Bilibili@某贼**整的半自动化公版Bootloader解锁脚本(windows):在**本教程仓库-配套文件/展讯/**中可以找到`展讯公钥签名解锁BL_by酷安@某贼.zip`的备份，下载下来即可
+* **酷安/Bilibili@某贼**整的半自动化公版Bootloader解锁脚本(windows):在 本教程仓库-配套文件/展讯/ 中可以找到 `展讯公钥签名解锁BL_by酷安@某贼.zip`的备份，下载下来即可
 
 ## 1.2 展讯spd_dump工具的使用
 
@@ -69,25 +71,28 @@
 设备关机，打开深刷工具spd_dump.exe，在关机之后摁住设备音量减，并将设备插入计算机，如能看到BROM＞字样，可松开按钮，如没有，请重启你的计算机和平板或者尝试在插入计算机前，将设备所有按键(电源+音量加减)按住
 
 2.初始化读写模式(FDL2)模式
-在`BROM>`出现后：
+在 `BROM>`出现后：
 输入
 `loadfdl 0x5500_ud710`
-回车，如果此时出现什么**usb send failed**那你就可以放弃使用本方法了
-如果没有出现`usb send failed`并正常显示`FDL1>`，请输入
-`loadfdl 0x9efffe00_ud710`
-回车接着输入
-`exec`
-进入读写模式(显示`FDL2>`)，并会展示分区表方便我们下一步操作.
+回车，如果此时出现什么**usb send failed**那你应该重启并使用配套文件中的"c2_0x5500"代替
+如果没有出现 `usb send failed`并正常显示 `FDL1>`，请输入
+`loadfdl 0x9efffe00_ud710 ` (如果你之前用c2_0x5500成功进FDL1,请使用c2_0x9efffe00)
+
+回车接着输入 `exec `进入读写模式(显示 `FDL2>`)，并会展示分区表方便我们下一步操作.
 3.其他操作
-请前往[spd_dump官方中文版文档](https://github.com/TomKing062/spreadtrum_flash/blob/main/README_zh.md)了解更多
+请前往[spd_dump官方中文版文档](https://github.com/TomKing062/spreadtrum_flash/blob/main/README_zh.md) 或者 [SPD Dump 使用指南 – LinearTeam](https://www.linearteam.top/spd-dump-help/)了解更多
+
 ## 1.3备份全盘
+
 您先需要备份全盘分区并妥善保存，输入
 `r all`
 意为读取全盘
 如果软件闪退，可以从头再来，在r all时加入目标地址 ，但是不管怎样，文件都会保存SPRD文件夹内
 等文件读取完毕，你应该去把文件妥善保存并记住存储位置
+
 ## 1.4 刷入预先获得的无限制系统(C6-v99)
-假设你得到的无限制系统文件名为`system_c6_v99.bin`，位于`D:\android\kdxf\`
+
+假设你得到的无限制系统文件名为 `system_c6_v99.bin`，位于 `D:\android\kdxf\`
 在刷机工具spd_dump.exe窗口内输入
 
 `w system D:\android\kdxf\system_c6_v99.bin`
@@ -141,7 +146,8 @@ magisk安装包（26+，官版和Kitsune都行的）
 boot,system,vendor镜像自己想办法得到
 
 ## 2.2 (修改system/vendor)root
-（本方法已因为太过麻烦而且）
+
+（本方法因为太过麻烦已被淘汰）
 
 linux上挂载system镜像与vendor镜像为**读写**，解压magisk安装包
 
@@ -309,9 +315,15 @@ ln -s ../../../../lib64/libdefcontainer_jni.so libdefcontainer_jni.so
 
 ## 2.5 (仅修改system) 获得一个精简的类似GSI的system分区
 
-这个我不会找原编写者去
+替换掉原系统的安装器及权限管理程序,然后把app中除了IFlyIMESigned外其他带IFly,Tye的应用全删了(priv-app有个Hardware开头的也删了),把你想要内置的一些如微软桌面的app新建一个文件夹放入然后回去打包即得
 
-## 3.chip2机型
-切记切记 这个机子除了基于官方魔改的c2通用sgsi，什么gsi都不开机 可参见leaking烈士墙
-由于无法进入fdl1 所以 emmm你只能走fastboot刷入boot和sgsi
-大概的流程是 算了等v3去 leaking找我也行
+
+## 2.6 (基于2.5的成果) 完全不使用下载模式读写功能获取Root
+
+> Aka. UD710-Chip2在试出可用FDL1/2 之前使用的Root方案
+
+详见 [通过利用CVE-2025-31710间接实现给某个搭载安卓9的完全不可能利用下载模式(指FDL1和FDL2)的展讯设备获取Root权限](https://kawaiisparkle.github.io/post/tong-guo-li-yong-CVE-2025-31710-jian-jie-shi-xian-gei-mou-ge-da-zai-an-zhuo-9-de-wan-quan-bu-ke-neng-li-yong-xia-zai-mo-shi-%28-zhi-FDL1-he-FDL2%29-de-zhan-xun-she-bei-huo-qu-Root-quan-xian.html)
+
+# 友链
+
+https://www.linearteam.top/

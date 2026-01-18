@@ -22,11 +22,11 @@
 
 ### 适用机型
 
-校园版（因不可抗力因素我们无法提供支持）隔壁左转linerteam欢迎你：
+校园版（ToB,因不可抗力因素我们无法提供支持）隔壁左转linerteam欢迎你：
 
-CB-C6s-STU、CB-C8Air-STU、CB-C8hPro-STU、CB-C8Pro-STU、CB-C8-STU、CB-Q1-ETOrg、CB-C6-STU、ZK-MAN、
+CB-C6s-STU、CB-C8Air-STU、CB-C8hPro-STU、CB-C8Pro-STU、CB-C8-STU、CB-Q1-ETOrg、CB-C6-STU、ZK-MAN、E8h等
 
-零售版：
+零售版(ToC)：
 
 T710机型(ud710)：
 
@@ -34,9 +34,9 @@ chip0-ud710:Z1/X2/X2Pro/X3Pro
 
 chip1-ud710:T20/T10
 
-chip2-ud710:A10（chip2机型暂无合适的fdl文件来进入fdl1，因此无法救砖）
+chip2-ud710:SA30Pro(S30,S30D),SA30(P30/Q30),TX20(C10全系,A10)
 
-T760机型(ums9620)：Lumie10Pro/T30Lite（破解成功了 我现在在用这东西打字）
+T760机型(ums9620)：Lumie10Pro/T30Lite
 
 T310机型(ums312):Q10
 
@@ -62,17 +62,17 @@ T20 Pro，T30 Pro，T30 Ultra
 
 ## Contributors | 贡献者名单
 
-[@KawaiiSparkle](https://github.com/KawaiiSparkle)/[@qwqlemon2333](https://github.com/qwqlemon2333)/[@WalleoAndrew](https://github.com/WalleoAndrew)一起编写了伪造apk更新包教程+Root教程  
+[@KawaiiSparkle](https://github.com/KawaiiSparkle)/[@qwqlemon2333](https://github.com/qwqlemon2333)/[@WalleoAndrew](https://github.com/WalleoAndrew)一起编写了伪造apk更新包教程+Root教程
 
-[@Tomking062](https://github.com/Tomking062)提供了Root的思路(system-root for android 9-10)、spd_dump工具(改进版本)  
+[@Tomking062](https://github.com/Tomking062)提供了Root的思路(system-root for android 9-10)、spd_dump工具(改进版本)
 
-[@whhh233](https://github.com/whhh233)为我们免费提供了网盘来存放文件，但现已停止运行  
+[@whhh233](https://github.com/whhh233)为我们免费提供了网盘来存放文件，但现已停止运行
 
-[@WalleoAndrew](https://github.com/WalleoAndrew)最初开始搞科大AI学习机解除安装限制的人：[他的B站专栏](https://www.bilibili.com/opus/645517873680220178)  
+[@WalleoAndrew](https://github.com/WalleoAndrew)最初开始搞科大AI学习机解除安装限制的人：[他的B站专栏](https://www.bilibili.com/opus/645517873680220178)
 
 [@YedLeo1](https://github.com/YedLeo1)负责T20Pro机型破解
 
-[@KawaiiSparkle](https://github.com/KawaiiSparkle)/[@LYao2514](https://github.com/LYao2514)创作了一键自动patch系统分区的脚本  
+[@KawaiiSparkle](https://github.com/KawaiiSparkle)/[@LYao2514](https://github.com/LYao2514)创作了一键自动patch系统分区的脚本
 
 [@ig25138](https://github.com/ig25138)负责T30Pro机型破解，别信那个没更新的教程，rec都能开机了 也叫他hbo，心在远方之类的 名义上leaking群主但是和我以及KawaiiSparkle平级
 
@@ -81,5 +81,3 @@ T20 Pro，T30 Pro，T30 Ultra
 [酷安@某贼](http://www.coolapk.com/u/3463951)负责将我们备份好的资源上传到[萤火虫资源站](https://yhcres.top)，让很多人能救砖
 
 八蓝米科技 提供leaking内部文件站
-
-
