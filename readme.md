@@ -22,7 +22,7 @@
 
 ### 适用机型
 
-校园版（ToB,因不可抗力因素我们无法提供支持）隔壁左转linerteam欢迎你：
+校园版（ToB,因不可抗力因素我们无法提供支持）：
 
 CB-C6s-STU、CB-C8Air-STU、CB-C8hPro-STU、CB-C8Pro-STU、CB-C8-STU、CB-Q1-ETOrg、CB-C6-STU、ZK-MAN、E8h等
 
@@ -50,7 +50,7 @@ T310机型(ums312):Q10
 
 课堂版/零售版X1Pro（代号为TYE100，骁龙625，安卓8.1）
 
-Tips:课堂版因不可抗力因素无法提供支持，请自行左转隔壁linerteam
+Tips:课堂版因不可抗力因素无法提供支持
 
 ## 瑞芯微系列机型破解教程
 
