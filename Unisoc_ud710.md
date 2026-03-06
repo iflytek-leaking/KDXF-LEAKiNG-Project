@@ -323,7 +323,3 @@ ln -s ../../../../lib64/libdefcontainer_jni.so libdefcontainer_jni.so
 > Aka. UD710-Chip2在试出可用FDL1/2 之前使用的Root方案
 
 详见 [通过利用CVE-2025-31710间接实现给某个搭载安卓9的完全不可能利用下载模式(指FDL1和FDL2)的展讯设备获取Root权限](https://kawaiisparkle.github.io/post/tong-guo-li-yong-CVE-2025-31710-jian-jie-shi-xian-gei-mou-ge-da-zai-an-zhuo-9-de-wan-quan-bu-ke-neng-li-yong-xia-zai-mo-shi-%28-zhi-FDL1-he-FDL2%29-de-zhan-xun-she-bei-huo-qu-Root-quan-xian.html)
-
-# 友链
-
-https://www.linearteam.top/
