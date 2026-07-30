@@ -1,0 +1,271 @@
+;***************************************************************************************
+;
+; Name      : sprdvmdm.inf  
+;
+; Function  : Install UNISOC USB Modem Driver
+;
+; Copyright (c) UNISOC Communications Inc.  All rights reserved.
+;
+;***************************************************************************************
+
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = Modem
+Provider    = %SPRD%
+ClassGuid   = {4D36E96D-E325-11CE-BFC1-08002BE10318}
+DriverVer   = 01/08/2020,4.19.38.134
+CatalogFile = sprdvmdm.cat
+
+[ControlFlags]
+ExcludeFromSelect = *
+
+[SourceDisksNames]
+1 = %SRCDISK%,,,\i386
+2 = %SRCDISK%,,,\amd64
+
+[SourceDisksFiles.x86]
+sprdvmdm.sys             = 1
+WdfCoInstaller01009.dll  = 1
+
+[SourceDisksFiles.amd64]
+sprdvmdm.sys             = 2
+WdfCoInstaller01009.dll  = 2
+
+[DestinationDirs]
+DefaultDestDir           = 12
+Modem6k.NT.Copy          = 12
+CoInstaller_CopyFiles    = 11
+
+[Manufacturer]
+%SPRD% = SPRD,NTx86,NTAMD64
+
+[SPRD]
+%HSPA_MODEM% = Modem6k, USB\VID_1782&PID_0009&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_3D00&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_3D02&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_3D03&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4026&MI_06
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4027&MI_04
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4028&MI_05
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4029&MI_03
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4030&MI_06
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4031&MI_04
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4032&MI_05
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4033&MI_03
+
+[SPRD.NTx86]
+%HSPA_MODEM% = Modem6k, USB\VID_1782&PID_0009&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_3D00&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_3D02&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_3D03&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4026&MI_06
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4027&MI_04
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4028&MI_05
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4029&MI_03
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4030&MI_06
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4031&MI_04
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4032&MI_05
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4033&MI_03
+
+[SPRD.NTAMD64]
+%HSPA_MODEM% = Modem6k, USB\VID_1782&PID_0009&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_3D00&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_3D02&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_3D03&MI_02
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4026&MI_06
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4027&MI_04
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4028&MI_05
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4029&MI_03
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4030&MI_06
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4031&MI_04
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4032&MI_05
+%SPRD_MODEM% = Modem6k, USB\VID_1782&PID_4033&MI_03
+
+[Modem6k.NT]
+CopyFiles = Modem6k.NT.Copy
+AddReg    = All, MfgAddReg, Modem1.AddReg, USB
+
+[Modem6k.NT.Services]
+AddService = sprdvmdm, 0x00000000, LowerFilter_Service_Inst6k
+
+[Modem6k.NT.HW]
+AddReg     = LowerFilterAddReg6k
+
+[Modem6k.NT.Copy]
+sprdvmdm.sys,,,0x06
+
+[LowerFilterAddReg6k]
+HKR,,"LowerFilters",0x00010000,"sprdvmdm"
+HKR,,DeviceCharacteristics,0x10001,0x0100         ; Use same security checks on relative opens
+HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;WD)"      ; Allow generic-all access to Built-in administrators and Local system 
+HKR,,"VendorRequestTimeoutValue", %REG_DWORD%,5
+HKR,,"SprdVendorRequest",%REG_DWORD%,1            ; If SprdVendorRequest is 1, CdcControlLineState will be ignored
+HKR,,"CdcControlLineState",%REG_DWORD%,0          ; Only if SprdVendorRequest is 0, this configure will be worked
+HKR,,"UseContinuousRead",%REG_DWORD%,0
+HKR,,"RxFifoSize",%REG_DWORD%,128                 ; KByte
+HKR,,"BulkInBufSize",%REG_DWORD%,4                ; KByte
+HKR,,"UsbEnableZLP",%REG_DWORD%,1
+
+[LowerFilter_Service_Inst6k]
+ServiceType   = 1
+StartType     = 3
+ErrorControl  = 1
+ServiceBinary = %12%\sprdvmdm.sys
+AddReg        = Service_AddReg
+
+[Service_AddReg]
+HKR,,TraceFile,%REG_DWORD%,1
+
+;-------------- WDF Coinstaller installation
+
+[Modem6k.NT.CoInstallers]
+AddReg     = CoInstaller_AddReg
+CopyFiles  = CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[Modem6k.NT.Wdf]
+KmdfService = sprdvmdm, Serial_wdfsect
+
+[Serial_wdfsect]
+KmdfLibraryVersion = 1.9
+
+[Strings]
+SPRD          = "UNISOC Communications Inc"
+SRCDISK       = "UNISOC Virtual Modem Installation Disk"
+HSPA_MODEM    = "SPRD HSPA Modem"
+SPRD_MODEM    = "SPRD Modem"
+REG_EXPAND_SZ = 0x00020000
+REG_DWORD     = 0x00010001
+
+
+[All]
+HKR,,FriendlyDriver,0,Unimodem.vxd
+HKR,,DevLoader,0,*vcomm
+HKR,,ConfigDialog,0,modemui.dll
+HKR,,EnumPropPages,0,modemui.dll,EnumPropPages
+HKR,,PortSubClass,1,02
+HKR, Init,      1,, "AT<cr>"
+HKR,,InitialBaudRate, 0x10001, 00,DD,6D,00			;7.2M initial baud rate
+HKR,,InitialLineControl,, "8N1"					;8-bits, No parity, 1 stop bit
+
+[Modem1.AddReg]
+HKR,,Properties,  1, 00,00,00,00, FF,00,00,00, 00,00,00,00, 00,00,00,00, 00,00,00,00, 31,00,00,00, 00,40,1F,00, 80,70,00,00
+HKR,, DCB, 1, 1C,00,00,00, 00,dd,6d,00, 15,20,00,00, 00,00, 0a,00, 0a,00, 08, 00, 00, 11, 13, 00, 00, 00
+HKR,, FClass, 1, c3,00,00,00
+HKR, Fax, CL1FCS,, "2"
+HKR, Fax, HardwareFlowControl,, "1"
+
+[USB]
+HKR,, DeviceType, 1, 01
+HKR,,Contention,,""
+
+[MfgAddReg]
+HKR,, InactivityScale,1, 3c,00,00,00
+HKR, Init,    1,, "AT<cr>"
+HKR, Init, 2,, "ATE0V1<cr>"
+;HKR, Init,    2,, "ATV1<cr>"
+;HKR, Init,    3,, "ATE0<cr>"
+;HKR, Init,    4,, "AT&F&D2&C1S0=0<cr>"
+;HKR, Monitor, 1,, "ATS0=0<cr>"
+HKR, Monitor, 1,, "None"
+HKR, Answer,    1,, "ATA<cr>"
+HKR, Hangup,    1,, "ATH E1<cr>"
+HKR,, Reset,, "AT&F<cr>"
+HKR, Settings, Prefix,, "AT"
+HKR, Settings, Terminator,, "<cr>"
+HKR, Settings, DialPrefix,, "D"
+HKR, Settings, DialSuffix,, ""
+;HKR, Settings, CallSetupFailTimer,, "S7=<#>"
+HKR, Settings, Pulse,, "P"
+HKR, Settings, Tone,, "T"
+;HKR, Settings, InactivityTimeOut,,"S30=<#>"
+
+HKR, Responses, "0<cr>",                       1, 00, 00, 00,00,00,00, 00,00,00,00 ; OK - Command executed
+HKR, Responses, "1<cr>",                       1, 02, 00, 00,00,00,00, 00,00,00,00 ; CONNECT - Connection
+HKR, Responses, "2<cr>",                       1, 08, 00, 00,00,00,00, 00,00,00,00 ; RING - Ring signal indicated
+HKR, Responses, "3<cr>",                       1, 04, 00, 00,00,00,00, 00,00,00,00 ; NO CARRIER
+HKR, Responses, "4<cr>",                       1, 03, 00, 00,00,00,00, 00,00,00,00 ; ERROR - Invalid command
+HKR, Responses, "5<cr>",                       1, 02, 00, B0,04,00,00, 00,00,00,00 ; CONNECT 1200
+HKR, Responses, "6<cr>",                       1, 05, 00, 00,00,00,00, 00,00,00,00 ; NO DIALTONE - No dial tone detected
+HKR, Responses, "7<cr>",                       1, 06, 00, 00,00,00,00, 00,00,00,00 ; BUSY - Engaged (busy) signal
+HKR, Responses, "8<cr>",                       1, 07, 00, 00,00,00,00, 00,00,00,00 ; NO ANSWER
+HKR, Responses, "<cr><lf>OK<cr><lf>",          1, 00, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>RING<cr><lf>",        1, 08, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>NO CARRIER<cr><lf>",             1, 04, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>ERROR<cr><lf>",       1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>NO DIALTONE<cr><lf>",  1, 05, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>NO DIAL TONE<cr><lf>",1, 05, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>BUSY<cr><lf>",        1, 06, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>NO ANSWER<cr><lf>",   1, 07, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT<cr><lf>",                1, 02, 00, 80,B9,2A,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2400<cr><lf>",       1, 02, 00, 60,09,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 4800<cr><lf>",       1, 02, 00, C0,12,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 9600<cr><lf>",       1, 02, 00, 80,25,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 14400<cr><lf>",      1, 02, 00, 40,38,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 19200<cr><lf>",      1, 02, 00, 00,4B,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 28800<cr><lf>",      1, 02, 00, 80,70,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 33600<cr><lf>",      1, 02, 00, 40,83,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 38400<cr><lf>",      1, 02, 00, 00,96,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 57600<cr><lf>",      1, 02, 00, 00,e1,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 115200<cr><lf>",      1, 02, 00, 00,c2,01,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 8000<cr><lf>",           1, 02, 00, 40,1F,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 16000<cr><lf>",          1, 02, 00, 80,3E,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 32000<cr><lf>",          1, 02, 00, 00,7D,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 64000<cr><lf>",      1, 02, 00, 00,FA,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 85600<cr><lf>" , 1, 02, 00, 60,4E,01,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 128000<cr><lf>",         1, 02, 00, 00,F4,01,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 144000<cr><lf>",         1, 02, 00, 80,32,02,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 236800<cr><lf>",     1, 02, 00, 00,9D,03,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 256000<cr><lf>",         1, 02, 00, 00,E8,03,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 384000<cr><lf>",         1, 02, 00, 00,DC,05,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 512000<cr><lf>",         1, 02, 00, 00,D0,07,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1024000<cr><lf>",        1, 02, 00, 00,A0,0F,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 1536000<cr><lf>",        1, 02, 00, 00,70,17,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2048000<cr><lf>",        1, 02, 00, 00,40,1F,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 2800000<cr><lf>", 1, 02, 00, 80,B9,2A,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 3600000<cr><lf>",     1, 02, 00, 80,EE,36,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 3686400<cr><lf>", 1, 02, 00, 00,40,38,00, 00,00,00,00
+HKR, Responses, "<cr><lf>CONNECT 7200000<cr><lf>",     1, 02, 00, 00,DD,6D,00, 00,00,00,00
+HKR, Responses, "<cr><lf>FAX<cr><lf>",                    1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>DATA<cr><lf>",                   1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>VOICE<cr><lf>",                  1, 03, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>RINGING<cr><lf>",                1, 01, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>DELAYED<cr><lf>",                1, 1D, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>DELAYED NUMBER<cr><lf>",         1, 1D, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>BLACKLISTED<cr><lf>",            1, 1C, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>BLACKLISTED NUMBER<cr><lf>",     1, 1C, 00, 00,00,00,00, 00,00,00,00
+HKR, Responses, "<cr><lf>+FCERROR<cr><lf>",               1, 03, 00, 00,00,00,00, 00,00,00,00
+
+HKR, Responses, "<cr><lf>+CME ERROR: 0<cr><lf>",    1, 03, 00, 00,00,00,00, 00,00,00,00   ; Phone failure.
+HKR, Responses, "<cr><lf>+CME ERROR: 1<cr><lf>",    1, 03, 00, 00,00,00,00, 00,00,00,00   ; No connection to phone.
+HKR, Responses, "<cr><lf>+CME ERROR: 2<cr><lf>",    1, 03, 00, 00,00,00,00, 00,00,00,00   ; Phone modem link reserved.
+HKR, Responses, "<cr><lf>+CME ERROR: 3<cr><lf>",    1, 03, 00, 00,00,00,00, 00,00,00,00   ; Operation not permitted.
+HKR, Responses, "<cr><lf>+CME ERROR: 4<cr><lf>",    1, 03, 00, 00,00,00,00, 00,00,00,00   ; Operation not supported.
+HKR, Responses, "<cr><lf>+CME ERROR: 5<cr><lf>",    1, 03, 00, 00,00,00,00, 00,00,00,00   ; PH-SIM card PIN required.
+HKR, Responses, "<cr><lf>+CME ERROR: 6<cr><lf>",    1, 03, 00, 00,00,00,00, 00,00,00,00   ; PH-FSIM PIN required
+HKR, Responses, "<cr><lf>+CME ERROR: 7<cr><lf>",    1, 03, 00, 00,00,00,00, 00,00,00,00   ; PH-FSIM PUK required
+HKR, Responses, "<cr><lf>+CME ERROR: 10<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; SIM card not inserted.
+HKR, Responses, "<cr><lf>+CME ERROR: 11<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; SIM card PIN required.
+HKR, Responses, "<cr><lf>+CME ERROR: 12<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; SIM card PUK required.
+HKR, Responses, "<cr><lf>+CME ERROR: 13<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; SIM card failure.
+HKR, Responses, "<cr><lf>+CME ERROR: 14<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; SIM card busy.
+HKR, Responses, "<cr><lf>+CME ERROR: 15<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; SIM card wrong.
+HKR, Responses, "<cr><lf>+CME ERROR: 16<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Incorrect password.
+HKR, Responses, "<cr><lf>+CME ERROR: 20<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Memory full.
+HKR, Responses, "<cr><lf>+CME ERROR: 21<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Invalid index.
+HKR, Responses, "<cr><lf>+CME ERROR: 22<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Not found.
+HKR, Responses, "<cr><lf>+CME ERROR: 23<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Memory failure.
+HKR, Responses, "<cr><lf>+CME ERROR: 24<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Text string too long.
+HKR, Responses, "<cr><lf>+CME ERROR: 25<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Invalid character in text string.
+HKR, Responses, "<cr><lf>+CME ERROR: 26<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Dial string too long.
+HKR, Responses, "<cr><lf>+CME ERROR: 27<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Invalid character in dial string.
+HKR, Responses, "<cr><lf>+CME ERROR: 30<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; No network service
+HKR, Responses, "<cr><lf>+CME ERROR: 31<cr><lf>",   1, 03, 00, 00,00,00,00, 00,00,00,00   ; Network timeout
+HKR, Responses, "<cr><lf>+CME ERROR: 100<cr><lf>",  1, 03, 00, 00,00,00,00, 00,00,00,00   ; Unknown.
+HKR, Responses, "<cr><lf>+CMS ERROR: ",             1, 03, 00, 00,00,00,00, 00,00,00,00   ; CMS errors

@@ -1,0 +1,958 @@
+;***************************************************************************************
+;
+; Name      : sprdvcom.inf  
+;
+; Function  : Install UNISOC USB Serial Driver
+;
+; Copyright (c) UNISOC Communications Inc.  All rights reserved.
+;
+;***************************************************************************************
+
+[version]
+signature   = "$CHICAGO$"
+Class       = Ports
+ClassGuid   = {4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider    = %SPRD%
+DriverVer   = 01/08/2020,4.19.38.134
+CatalogFile = sprdvcom.cat
+
+; ================= Device Install section =====================
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\i386
+2 = %DISK_NAME%,,,\amd64
+
+[SourceDisksFiles.x86]
+WdfCoInstaller01009.dll = 1
+sprdvcom.sys            = 1
+
+[SourceDisksFiles.amd64]
+WdfCoInstaller01009.dll = 2
+sprdvcom.sys            = 2
+
+[DestinationDirs]
+DefaultDestDir          = 12
+CoInstaller_CopyFiles   = 11
+
+[Manufacturer]
+%SPRD% = SPRD,NTx86,NTAMD64
+
+[SPRD]
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_0009&MI_00
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_0009&MI_01
+%SPRD.AT2%    = Serial_Inst, USB\VID_1782&PID_0009&MI_03
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_000A&MI_02
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_000A&MI_03
+%SPRD.CM4LOG% = Serial_Inst, USB\VID_1782&PID_000A&MI_04
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_000A&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D00&MI_00
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_3D00&MI_01
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D02&MI_01
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_3D03&MI_01
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D03&MI_00
+%SPRD.CPLOG%  = Serial_Inst, USB\VID_1782&PID_3D03&MI_03
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_3D10&MI_01
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D13
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4001&MI_01
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4001&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4001&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4001&MI_04
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4001&MI_05
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4001&MI_06
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4001&MI_07
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4001&MI_08
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4001&MI_09
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4002&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4002&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4002&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4002&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4002&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4002&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4002&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4002&MI_09
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4002&MI_0A
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4003&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4003&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4003&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4012&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4012&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4012&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4012&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4012&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4012&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4012&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4012&MI_09
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4012&MI_0A
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4013&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4013&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4013&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4022&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4022&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4022&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4022&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4022&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4022&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4022&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4022&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4022&MI_0B
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4023&MI_03
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4023&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4023&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4024&MI_00
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4024&MI_01
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4024&MI_02
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4024&MI_03
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4024&MI_04
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4024&MI_05
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4024&MI_06
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4024&MI_07
+
+;%SPRD.DIAG%  = Serial_Inst, USB\VID_1782&PID_4025&MI_03
+;%SPRD.LOG%   = Serial_Inst, USB\VID_1782&PID_4025&MI_04
+;%SPRD.AT%    = Serial_Inst, USB\VID_1782&PID_4025&MI_05
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4026&MI_03
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4026&MI_04
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4026&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4027&MI_02
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4027&MI_03
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4027&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4028&MI_03
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4028&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4029&MI_02
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4030&MI_03
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4030&MI_04
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4030&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4031&MI_02
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4031&MI_03
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4031&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4032&MI_03
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4032&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4033&MI_02
+
+%USBCOMM_DL%  = Serial_Inst, USB\VID_1782&PID_4D00
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4D01&MI_01
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4D01&MI_02
+
+%USBCOMM_DL%  = Serial_Inst, USB\VID_1782&PID_4D02        ; For RDA
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5A5B&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5A5B&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5A5B&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5A5B&MI_09
+
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_01
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D03&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D03&MI_04
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_05
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D03&MI_06
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_07
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5D03&MI_08
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_09
+
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D04&MI_02
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D04&MI_03
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_5D06&MI_01
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D06&MI_02
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D21&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D21&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D21&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5D21&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_0B
+
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D23&MI_02
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D24&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D24&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D24&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5D24&MI_09
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_0A
+;8830ec
+%TD.AT%       = Serial_Inst, USB\VID_1782&PID_5D25&MI_03
+%TD.DIAG%     = Serial_Inst, USB\VID_1782&PID_5D25&MI_04
+%W.AT%        = Serial_Inst, USB\VID_1782&PID_5D25&MI_05
+%W.DIAG%      = Serial_Inst, USB\VID_1782&PID_5D25&MI_06
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D25&MI_07
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D25&MI_08
+;8830ec
+%TD.AT%       = Serial_Inst, USB\VID_1782&PID_5D26&MI_01
+%TD.DIAG%     = Serial_Inst, USB\VID_1782&PID_5D26&MI_02
+%W.AT%        = Serial_Inst, USB\VID_1782&PID_5D26&MI_03
+%W.DIAG%      = Serial_Inst, USB\VID_1782&PID_5D26&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D26&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D26&MI_06
+;Dechen8830
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D27&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D27&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D27&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D27&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D28&MI_01
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D28&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D28&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D28&MI_04
+
+%USBCOMM_DL%  = Serial_Inst, USB\VID_1782&PID_5D29&MI_00
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D31&MI_03
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D31&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D31&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D34&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D34&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D34&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_A002&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_A002&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_A002&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_A002&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_A002&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_A002&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_A002&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_A002&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_A002&MI_0B
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_A012&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_A012&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_A012&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_A012&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_A012&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_A012&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_A012&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_A012&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_A012&MI_0B
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_A022&MI_04
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_A022&MI_05
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_A022&MI_06
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_A022&MI_07
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_A022&MI_08
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_A022&MI_09
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_A022&MI_0A
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_A022&MI_0B
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_A022&MI_0C
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_04
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_05
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_AD21&MI_06
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_AD21&MI_07
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_08
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_AD21&MI_09
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_0A
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_AD21&MI_0B
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_0C
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_AD24&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_AD24&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_AD24&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_AD24&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_0B
+
+;GOOGLE
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_2D06&MI_03
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_2D06&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_2D06&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_2D07&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_2D07&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_2D07&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_2D08&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_2D08&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_2D08&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_01
+%COMDIAG%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_04
+%SPRDLOG%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_05
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_06
+%LTEDIAG%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_07
+%LTELOG%      = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_08
+%SPRD.IQ%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_09
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_4EE8&MI_01
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_4EE8&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_4EE8&MI_03
+
+; For XP and later
+[SPRD.NTx86]
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_0009&MI_00
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_0009&MI_01
+%SPRD.AT2%    = Serial_Inst, USB\VID_1782&PID_0009&MI_03
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_000A&MI_02
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_000A&MI_03
+%SPRD.CM4LOG% = Serial_Inst, USB\VID_1782&PID_000A&MI_04
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_000A&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D00&MI_00
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_3D00&MI_01
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D02&MI_01
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_3D03&MI_01
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D03&MI_00
+%SPRD.CPLOG%  = Serial_Inst, USB\VID_1782&PID_3D03&MI_03
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_3D10&MI_01
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D13
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4001&MI_01
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4001&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4001&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4001&MI_04
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4001&MI_05
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4001&MI_06
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4001&MI_07
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4001&MI_08
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4001&MI_09
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4002&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4002&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4002&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4002&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4002&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4002&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4002&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4002&MI_09
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4002&MI_0A
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4003&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4003&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4003&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4012&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4012&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4012&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4012&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4012&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4012&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4012&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4012&MI_09
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4012&MI_0A
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4013&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4013&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4013&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4022&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4022&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4022&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4022&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4022&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4022&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4022&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4022&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4022&MI_0B
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4023&MI_03
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4023&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4023&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4024&MI_00
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4024&MI_01
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4024&MI_02
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4024&MI_03
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4024&MI_04
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4024&MI_05
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4024&MI_06
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4024&MI_07
+
+;%SPRD.DIAG%  = Serial_Inst, USB\VID_1782&PID_4025&MI_03
+;%SPRD.LOG%   = Serial_Inst, USB\VID_1782&PID_4025&MI_04
+;%SPRD.AT%    = Serial_Inst, USB\VID_1782&PID_4025&MI_05
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4026&MI_03
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4026&MI_04
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4026&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4027&MI_02
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4027&MI_03
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4027&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4028&MI_03
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4028&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4029&MI_02
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4030&MI_03
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4030&MI_04
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4030&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4031&MI_02
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4031&MI_03
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4031&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4032&MI_03
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4032&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4033&MI_02
+
+%USBCOMM_DL%  = Serial_Inst, USB\VID_1782&PID_4D00
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4D01&MI_01
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4D01&MI_02
+
+%USBCOMM_DL%  = Serial_Inst, USB\VID_1782&PID_4D02        ; For RDA
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5A5B&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5A5B&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5A5B&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5A5B&MI_09
+
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_01
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D03&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D03&MI_04
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_05
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D03&MI_06
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_07
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5D03&MI_08
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_09
+
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D04&MI_02
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D04&MI_03
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_5D06&MI_01
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D06&MI_02
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D21&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D21&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D21&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5D21&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_0B
+
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D23&MI_02
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D24&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D24&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D24&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5D24&MI_09
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_0A
+;8830ec
+%TD.AT%       = Serial_Inst, USB\VID_1782&PID_5D25&MI_03
+%TD.DIAG%     = Serial_Inst, USB\VID_1782&PID_5D25&MI_04
+%W.AT%        = Serial_Inst, USB\VID_1782&PID_5D25&MI_05
+%W.DIAG%      = Serial_Inst, USB\VID_1782&PID_5D25&MI_06
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D25&MI_07
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D25&MI_08
+;8830ec
+%TD.AT%       = Serial_Inst, USB\VID_1782&PID_5D26&MI_01
+%TD.DIAG%     = Serial_Inst, USB\VID_1782&PID_5D26&MI_02
+%W.AT%        = Serial_Inst, USB\VID_1782&PID_5D26&MI_03
+%W.DIAG%      = Serial_Inst, USB\VID_1782&PID_5D26&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D26&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D26&MI_06
+;Dechen8830
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D27&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D27&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D27&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D27&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D28&MI_01
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D28&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D28&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D28&MI_04
+
+%USBCOMM_DL%  = Serial_Inst, USB\VID_1782&PID_5D29&MI_00
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D31&MI_03
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D31&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D31&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D34&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D34&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D34&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_A002&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_A002&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_A002&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_A002&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_A002&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_A002&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_A002&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_A002&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_A002&MI_0B
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_A012&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_A012&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_A012&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_A012&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_A012&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_A012&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_A012&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_A012&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_A012&MI_0B
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_A022&MI_04
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_A022&MI_05
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_A022&MI_06
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_A022&MI_07
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_A022&MI_08
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_A022&MI_09
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_A022&MI_0A
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_A022&MI_0B
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_A022&MI_0C
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_04
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_05
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_AD21&MI_06
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_AD21&MI_07
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_08
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_AD21&MI_09
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_0A
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_AD21&MI_0B
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_0C
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_AD24&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_AD24&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_AD24&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_AD24&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_0B
+
+;GOOGLE
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_2D06&MI_03
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_2D06&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_2D06&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_2D07&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_2D07&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_2D07&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_2D08&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_2D08&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_2D08&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_01
+%COMDIAG%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_04
+%SPRDLOG%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_05
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_06
+%LTEDIAG%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_07
+%LTELOG%      = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_08
+%SPRD.IQ%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_09
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_4EE8&MI_01
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_4EE8&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_4EE8&MI_03
+
+[SPRD.NTAMD64]
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_0009&MI_00
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_0009&MI_01
+%SPRD.AT2%    = Serial_Inst, USB\VID_1782&PID_0009&MI_03
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_000A&MI_02
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_000A&MI_03
+%SPRD.CM4LOG% = Serial_Inst, USB\VID_1782&PID_000A&MI_04
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_000A&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D00&MI_00
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_3D00&MI_01
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D02&MI_01
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_3D03&MI_01
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D03&MI_00
+%SPRD.CPLOG%  = Serial_Inst, USB\VID_1782&PID_3D03&MI_03
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_3D10&MI_01
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_3D13
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4001&MI_01
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4001&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4001&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4001&MI_04
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4001&MI_05
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4001&MI_06
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4001&MI_07
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4001&MI_08
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4001&MI_09
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4002&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4002&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4002&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4002&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4002&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4002&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4002&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4002&MI_09
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4002&MI_0A
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4003&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4003&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4003&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4012&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4012&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4012&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4012&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4012&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4012&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4012&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4012&MI_09
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4012&MI_0A
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4013&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4013&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4013&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4022&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4022&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4022&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4022&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4022&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4022&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4022&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4022&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_4022&MI_0B
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4023&MI_03
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4023&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4023&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4024&MI_00
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_4024&MI_01
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_4024&MI_02
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_4024&MI_03
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_4024&MI_04
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_4024&MI_05
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_4024&MI_06
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_4024&MI_07
+
+;%SPRD.DIAG%  = Serial_Inst, USB\VID_1782&PID_4025&MI_03
+;%SPRD.LOG%   = Serial_Inst, USB\VID_1782&PID_4025&MI_04
+;%SPRD.AT%    = Serial_Inst, USB\VID_1782&PID_4025&MI_05
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4026&MI_03
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4026&MI_04
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4026&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4027&MI_02
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4027&MI_03
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4027&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4028&MI_03
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4028&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4029&MI_02
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4030&MI_03
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4030&MI_04
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4030&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4031&MI_02
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4031&MI_03
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4031&MI_05
+
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4032&MI_03
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4032&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_4033&MI_02
+
+%USBCOMM_DL%  = Serial_Inst, USB\VID_1782&PID_4D00
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_4D01&MI_01
+%SPRD.LOG%    = Serial_Inst, USB\VID_1782&PID_4D01&MI_02
+
+%USBCOMM_DL%  = Serial_Inst, USB\VID_1782&PID_4D02        ; For RDA
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5A5B&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5A5B&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5A5B&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5A5B&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5A5B&MI_09
+
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_01
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D03&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D03&MI_04
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_05
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D03&MI_06
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_07
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5D03&MI_08
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_5D03&MI_09
+
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D04&MI_02
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D04&MI_03
+
+%SPRD.DIAG%   = Serial_Inst, USB\VID_1782&PID_5D06&MI_01
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D06&MI_02
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D21&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D21&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D21&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5D21&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_5D21&MI_0B
+
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D23&MI_02
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D24&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D24&MI_05
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_06
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D24&MI_07
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_08
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_5D24&MI_09
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_5D24&MI_0A
+;8830ec
+%TD.AT%       = Serial_Inst, USB\VID_1782&PID_5D25&MI_03
+%TD.DIAG%     = Serial_Inst, USB\VID_1782&PID_5D25&MI_04
+%W.AT%        = Serial_Inst, USB\VID_1782&PID_5D25&MI_05
+%W.DIAG%      = Serial_Inst, USB\VID_1782&PID_5D25&MI_06
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D25&MI_07
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D25&MI_08
+;8830ec
+%TD.AT%       = Serial_Inst, USB\VID_1782&PID_5D26&MI_01
+%TD.DIAG%     = Serial_Inst, USB\VID_1782&PID_5D26&MI_02
+%W.AT%        = Serial_Inst, USB\VID_1782&PID_5D26&MI_03
+%W.DIAG%      = Serial_Inst, USB\VID_1782&PID_5D26&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D26&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D26&MI_06
+;Dechen8830
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D27&MI_02
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D27&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D27&MI_04
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D27&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D28&MI_01
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_5D28&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D28&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_5D28&MI_04
+
+%USBCOMM_DL%  = Serial_Inst, USB\VID_1782&PID_5D29&MI_00
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D31&MI_03
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D31&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D31&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_5D34&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_5D34&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_5D34&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_A002&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_A002&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_A002&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_A002&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_A002&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_A002&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_A002&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_A002&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_A002&MI_0B
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_A012&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_A012&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_A012&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_A012&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_A012&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_A012&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_A012&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_A012&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_A012&MI_0B
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_A022&MI_04
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_A022&MI_05
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_A022&MI_06
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_A022&MI_07
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_A022&MI_08
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_A022&MI_09
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_A022&MI_0A
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_A022&MI_0B
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_A022&MI_0C
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_04
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_05
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_AD21&MI_06
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_AD21&MI_07
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_08
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_AD21&MI_09
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_0A
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_AD21&MI_0B
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_AD21&MI_0C
+
+%SPRD.AT%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_03
+%COMDIAG%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_1782&PID_AD24&MI_05
+%WCN.DIAG%    = Serial_Inst, USB\VID_1782&PID_AD24&MI_06
+%SPRDLOG%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_07
+%LTEAT%       = Serial_Inst, USB\VID_1782&PID_AD24&MI_08
+%LTEDIAG%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_09
+%LTELOG%      = Serial_Inst, USB\VID_1782&PID_AD24&MI_0A
+%SPRD.IQ%     = Serial_Inst, USB\VID_1782&PID_AD24&MI_0B
+
+;GOOGLE
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_2D06&MI_03
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_2D06&MI_04
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_2D06&MI_05
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_2D07&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_2D07&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_2D07&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_2D08&MI_02
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_2D08&MI_03
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_2D08&MI_04
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_01
+%COMDIAG%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_03
+%WCN.DIAG%    = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_04
+%SPRDLOG%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_05
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_06
+%LTEDIAG%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_07
+%LTELOG%      = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_08
+%SPRD.IQ%     = Serial_Inst, USB\VID_18D1&PID_4EE7&MI_09
+
+%SPRD.AT%     = Serial_Inst, USB\VID_18D1&PID_4EE8&MI_01
+%LTEAT%       = Serial_Inst, USB\VID_18D1&PID_4EE8&MI_02
+%WCN.AT%      = Serial_Inst, USB\VID_18D1&PID_4EE8&MI_03
+
+[Serial_Inst]
+CopyFiles   = Serial.CopyFiles
+AddReg      = Serial_Inst.AddReg
+
+[Serial_Inst.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[Serial_Inst.HW]
+AddReg = Models_HW_AddReg
+
+[Serial.CopyFiles]
+sprdvcom.sys
+
+[Serial_Inst.Services]
+AddService=sprdvcom,0x00000002,Serial_Service 
+
+[Serial_Service]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\sprdvcom.sys
+AddReg         = Serial_Parameters_AddReg
+
+[Models_HW_AddReg]
+HKR,,DeviceCharacteristics,0x10001,0x0100         ; Use same security checks on relative opens
+HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;WD)"      ; Allow generic-all access to Built-in administrators and Local system 
+HKR,,"VendorRequestTimeoutValue", %REG_DWORD%,5
+HKR,,"SprdVendorRequest",%REG_DWORD%,1            ; If SprdVendorRequest is 1, CdcControlLineState will be ignored
+HKR,,"CdcControlLineState",%REG_DWORD%,0          ; Only if SprdVendorRequest is 0, this configure will be worked
+HKR,,"UseContinuousRead",%REG_DWORD%,0
+HKR,,"RxFifoSize",%REG_DWORD%,128                 ; KByte
+HKR,,"BulkInBufSize",%REG_DWORD%,4                ; KByte
+HKR,,"UsbEnableZLP",%REG_DWORD%,1
+
+[Serial_Parameters_AddReg]
+
+;-------------- WDF Coinstaller installation
+
+[Serial_Inst.CoInstallers]
+AddReg=CoInstaller_AddReg
+CopyFiles=CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[Serial_Inst.Wdf]
+KmdfService = sprdvcom, Serial_wdfsect
+
+[Serial_wdfsect]
+KmdfLibraryVersion = 1.9
+
+[Strings]
+SPRD            = "UNISOC Communications Inc."
+USBCOMM_DL      = "SPRD U2S Diag"
+SPRD.AT         = "SPRD AT"
+SPRD.DIAG       = "SPRD DIAG"
+SPRD.LOG        = "SPRD LOG"
+SPRD.IQ         = "SPRD IQ"
+SPRD.CPLOG      = "SPRD CP LOG"
+SPRD.AT2        = "SPRD Common AT"
+SPRD.CM4LOG     = "SPRD WCN LOG"
+COMDIAG         = "SPRD DIAG(SENSOR HUB)"
+SPRDLOG         = "SPRD LOG(AGDSP)"
+LTEAT           = "SPRD LTE AT(WIQ)"
+LTEDIAG         = "SPRD LTE DIAG"
+LTELOG          = "SPRD LTE LOG"
+TD.AT           = "SPRD TD AT"
+TD.DIAG         = "SPRD TD DIAG"
+W.AT            = "SPRD WCDMA AT"
+W.DIAG          = "SPRD WCDMA DIAG"
+WCN.AT          = "SPRD WCN AT"
+WCN.DIAG        = "SPRD WCN DIAG(LOG)"
+DISK_NAME       = "UNISOC USB to Serial Install Disk"
+REG_EXPAND_SZ   = 0x00020000 
+REG_DWORD       = 0x00010001 

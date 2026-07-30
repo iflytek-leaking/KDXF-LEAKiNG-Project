@@ -1,0 +1,192 @@
+;***************************************************************************************
+;
+; Name      : sprdadb.inf  
+;
+; Function  : Install UNISOC Android Debug Bridge Driver
+;
+; Copyright (c) UNISOC Communications Inc.  All rights reserved.
+;
+;***************************************************************************************
+
+[Version]
+Signature           = "$Windows NT$"
+Class               = AndroidUsbDeviceClass
+ClassGuid           = {3F966BD9-FA04-4ec5-991C-D326973B5128}
+Provider            = %SPRD%
+DriverVer           = 01/08/2020,4.19.38.134
+CatalogFile.NTx86   = sprdadb.cat
+CatalogFile.NTamd64 = sprdadb.cat
+
+;
+; This section seems to be required for WinUsb driver installation.
+; If this section is removed the installer will report an error
+; "Required section not found in INF file".
+;
+[ClassInstall32]
+Addreg = AndroidWinUsbClassReg
+
+[AndroidWinUsbClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-1
+
+[Manufacturer]
+%SPRD% = SPRD, NTx86, NTamd64
+
+[SPRD.NTx86]
+; SPRD Adb
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4002&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4003&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4012&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4013&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4022&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4023&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4026&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4028&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4029&MI_04
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4030&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4032&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4033&MI_04
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4D01&MI_00
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5A5B&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D01&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D04&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D06&MI_00
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D21&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D23&MI_03
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D24&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D25&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D27&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D29&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D31&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D34&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_A002&MI_01
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_A002&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_A012&MI_01
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_A012&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_A022&MI_02
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_A022&MI_03
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_AD21&MI_02
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_AD21&MI_03
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_AD24&MI_01
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_AD24&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_D001
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_D002
+; GOOGLE Adb
+%SingleBootLoaderInterface%  = USB_Install, USB\VID_18D1&PID_0FFF
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_2D06&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_2D07&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_2D08&MI_01
+%SingleBootLoaderInterface%  = USB_Install, USB\VID_18D1&PID_4EE0
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_4EE7&MI_00
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_4EE8&MI_00
+
+[SPRD.NTamd64]
+; SPRD Adb
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4002&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4003&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4012&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4013&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4022&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4023&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4026&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4028&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4029&MI_04
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4030&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4032&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4033&MI_04
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_4D01&MI_00
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5A5B&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D01&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D04&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D06&MI_00
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D21&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D23&MI_03
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D24&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D25&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D27&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D29&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D31&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_5D34&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_A002&MI_01
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_A002&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_A012&MI_01
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_A012&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_A022&MI_02
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_A022&MI_03
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_AD21&MI_02
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_AD21&MI_03
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_AD24&MI_01
+%CompositeAdbInterface2%     = USB_Install, USB\VID_1782&PID_AD24&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_D001
+%CompositeAdbInterface%      = USB_Install, USB\VID_1782&PID_D002
+; GOOGLE Adb
+%SingleBootLoaderInterface%  = USB_Install, USB\VID_18D1&PID_0FFF
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_2D06&MI_02
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_2D07&MI_01
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_2D08&MI_01
+%SingleBootLoaderInterface%  = USB_Install, USB\VID_18D1&PID_4EE0
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_4EE7&MI_00
+%CompositeAdbInterface%      = USB_Install, USB\VID_18D1&PID_4EE8&MI_00
+
+[USB_Install]
+Include = winusb.inf
+Needs   = WINUSB.NT
+
+[USB_Install.Services]
+Include     = winusb.inf
+AddService  = WinUSB,0x00000002,WinUSB_ServiceInstall
+
+[WinUSB_ServiceInstall]
+DisplayName     = %WinUSB_SvcDesc%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WinUSB.sys
+
+[USB_Install.Wdf]
+KmdfService = WINUSB, WinUSB_Install
+
+[WinUSB_Install]
+KmdfLibraryVersion  = 1.9
+
+[USB_Install.HW]
+AddReg  = Dev_AddReg
+
+[Dev_AddReg]
+HKR,,DeviceInterfaceGUIDs,0x10000,"{F72FE0D4-CBCB-407d-8814-9ED673D0DD6B}"
+
+[USB_Install.CoInstallers]
+AddReg    = CoInstallers_AddReg
+CopyFiles = CoInstallers_CopyFiles
+
+[CoInstallers_AddReg]
+HKR,,CoInstallers32,0x00010000,"WdfCoInstaller01009.dll,WdfCoInstaller","WinUSBCoInstaller2.dll"
+
+[CoInstallers_CopyFiles]
+WinUSBCoInstaller2.dll
+WdfCoInstaller01009.dll
+
+[DestinationDirs]
+CoInstallers_CopyFiles=11
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\i386
+2 = %DISK_NAME%,,,\amd64
+
+[SourceDisksFiles.x86]
+WinUSBCoInstaller2.dll  = 1
+WdfCoInstaller01009.dll = 1
+
+[SourceDisksFiles.amd64]
+WinUSBCoInstaller2.dll  = 2
+WdfCoInstaller01009.dll = 2
+
+[Strings]
+SPRD                        = "UNISOC Communications Inc."
+SingleAdbInterface          = "Android ADB Interface"
+CompositeAdbInterface       = "Android Composite ADB Interface"
+CompositeAdbInterface2      = "Android Composite YDB Interface"
+SingleBootLoaderInterface   = "Android Bootloader&ADB Interface"
+WinUSB_SvcDesc              = "Android USB Driver"
+DISK_NAME                   = "Android WinUsb installation disk"
+ClassName                   = "Android Phone"

@@ -1,0 +1,112 @@
+;***************************************************************************************
+;
+; Name      : rdavcom.inf  
+;
+; Function  : Install UNISOC USB Serial Driver for RDA
+;
+; Copyright (c) UNISOC Communications Inc.  All rights reserved.
+;
+;***************************************************************************************
+
+
+[version]
+signature   = "$CHICAGO$"
+Class       = Ports
+ClassGuid   = {4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider    = %SPRD%
+DriverVer   = 01/08/2020,4.19.38.134
+CatalogFile = rdavcom.cat
+
+; ================= Device Install section =====================
+
+[ControlFlags]
+ExcludeFromSelect=*
+
+[SourceDisksNames]
+1 = %DISK_NAME%,,,\i386
+2 = %DISK_NAME%,,,\amd64
+
+[SourceDisksFiles.x86]
+WdfCoInstaller01009.dll = 1
+rdavcom.sys             = 1
+
+[SourceDisksFiles.amd64]
+WdfCoInstaller01009.dll = 2
+rdavcom.sys             = 2
+
+[DestinationDirs]
+DefaultDestDir          = 12
+CoInstaller_CopyFiles   = 11
+
+[Manufacturer]
+%SPRD% = SPRD,NTx86,NTAMD64
+
+[SPRD]
+%USBCOMM_DL% = Serial_Inst, USB\VID_0525&PID_A4A7
+
+[SPRD.NTx86]
+%USBCOMM_DL% = Serial_Inst, USB\VID_0525&PID_A4A7
+
+[SPRD.NTAMD64]
+%USBCOMM_DL% = Serial_Inst, USB\VID_0525&PID_A4A7
+
+[Serial_Inst.NT]
+CopyFiles = Serial.CopyFiles
+AddReg    = Serial_Inst.AddReg
+
+[Serial_Inst.AddReg]
+HKR,,EnumPropPages32,,"MsPorts.dll,SerialPortPropPageProvider"
+
+[Serial_Inst.NT.HW]
+AddReg = Models_HW_AddReg
+
+[Serial.CopyFiles]
+rdavcom.sys
+
+[Serial_Inst.NT.Services]
+AddService = rdavcom,0x00000002,Serial_Service 
+
+[Serial_Service]
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\rdavcom.sys
+AddReg         = Serial_Parameters_AddReg
+
+[Models_HW_AddReg]
+HKR,,DeviceCharacteristics,0x10001,0x0100         ; Use same security checks on relative opens
+HKR,,Security,,"D:P(A;;GA;;;BA)(A;;GA;;;WD)"      ; Allow generic-all access to Built-in administrators and Local system 
+HKR,,"VendorRequestTimeoutValue", %REG_DWORD%,5
+HKR,,"SprdVendorRequest",%REG_DWORD%,0            ; If SprdVendorRequest is 1, CdcControlLineState will be ignored
+HKR,,"CdcControlLineState",%REG_DWORD%,0          ; Only if SprdVendorRequest is 0, this configure will be worked
+HKR,,"UseContinuousRead",%REG_DWORD%,0
+HKR,,"RxFifoSize",%REG_DWORD%,128                 ; KByte
+HKR,,"BulkInBufSize",%REG_DWORD%,4                ; KByte
+HKR,,"UsbEnableZLP",%REG_DWORD%,1
+
+[Serial_Parameters_AddReg]
+
+;-------------- WDF Coinstaller installation
+
+[Serial_Inst.NT.CoInstallers]
+AddReg    = CoInstaller_AddReg
+CopyFiles = CoInstaller_CopyFiles
+
+[CoInstaller_CopyFiles]
+WdfCoInstaller01009.dll
+
+[CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller01009.dll,WdfCoInstaller"
+
+[Serial_Inst.NT.Wdf]
+KmdfService = rdavcom, Serial_wdfsect
+
+[Serial_wdfsect]
+KmdfLibraryVersion = 1.9
+
+[Strings]
+SPRD           = "UNISOC Communications Inc."
+USBCOMM_DL     = "SPRD U2S Diag"
+DISK_NAME      = "UNISOC USB to Serial Install Disk"
+REG_EXPAND_SZ  = 0x00020000 
+REG_DWORD      = 0x00010001 
