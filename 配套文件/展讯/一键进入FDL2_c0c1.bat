@@ -1,5 +1,9 @@
 @echo off
 cd /d %~dp0
+REM SPDX-FileCopyrightText: 2024~2026 IFLYTEK-LEAKING
+REM SPDX-FileCopyrightText: 2024~2026 KawaiiSparkle
+REM SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+REM 全体贡献者见 CONTRIBUTORS.md
 echo ========================================
 echo   一键进入 FDL2 读写模式 (chip0/chip1)
 echo ========================================
