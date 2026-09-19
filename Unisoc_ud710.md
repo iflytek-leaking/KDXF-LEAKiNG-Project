@@ -1,3 +1,7 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 IFLYTEK-LEAKING -->
+<!-- SPDX-FileCopyrightText: 2024-2026 KawaiiSparkle -->
+<!-- SPDX-License-Identifier: CC-BY-NC-SA-4.0 -->
+<!-- 全体贡献者见 CONTRIBUTORS.md -->
 # 紫光展锐 UD710 机型深刷破解教程
 
 ## 适用机型
@@ -7,7 +11,7 @@
 | chip0/chip1-ud710 | Z1, X2, X2Pro, X3Pro, T10, T20 | SPRD4 被阉割，走SPRD3 |
 | chip2-ud710 | SA30Pro(S30/S30D), SA30(P30/Q30), TX20(C10全系/A10) | SPRD4 被阉割，走SPRD3 |
 | 其他 | C6, C8, Q1（课堂版，因不可抗力因素无法提供完整支持） | SPRD4 被阉割，走SPRD3 |
-| T310/ums312 | Q10 | **FDL 文件不同**，其余操作可套用本教程 |
+| T310/ums312 | Q10 | **FDL 文件不同**，无法使用kickto方法进bootloader，但是可以FDL2下直接reboot-recovery进REC再通过菜单进Bootloader |
 
 > C6 刷入V99后如果图省事可直接输入开发者密码：`IFlyCBaistudy5121`
 
@@ -30,18 +34,8 @@
 
 ## 第二步：解锁 BootLoader
 
-`配套文件/展讯/无SPRD4通用解BL工具/` 目录已包含Windows 7及更高的系统上运行所需的全套自动化脚本。
-
-1. **右键**以管理员身份运行 **`安装运行库和驱动.bat`**（自动安装 VC++ 运行库 + 紫光展锐驱动）
-2. 按编号顺序依次双击运行 **`0-` 到 `4-`** 开头的 bat 脚本：
-   - `0-关机方法进入bootloader.bat` => 进入 Kick 模式 => Fastboot
-   - `1-获取identifier_token.bat` => 获取解锁令牌
-   - `2-生成signature.bat` => 生成签名文件
-   - `3-解锁BL.bat` => 执行解锁（设备上按音量键选 YES，电源键确认）
-   - `4-检查是否解锁成功.bat` => 验证解锁结果
-3. 每个脚本执行完毕后按提示操作即可，脚本内部有详细的中文指引
-
-> **【提示】** 如果 `2-生成signature.bat` 提示缺少 DLL，说明 VC++ 运行库未安装，重新以管理员身份运行 `安装运行库和驱动.bat` 即可。
+https://github.com/iflytek-leaking/Unisoc_Toolbox/releases/latest
+包含了自动化解锁BL工具箱
 
 解锁成功后开机，屏幕底部会显示：
 ```

@@ -1,8 +1,12 @@
-# 科大讯飞AI学习机破解教程合集
+<!-- SPDX-FileCopyrightText: 2024-2026 IFLYTEK-LEAKING -->
+<!-- SPDX-FileCopyrightText: 2024-2026 KawaiiSparkle -->
+<!-- SPDX-License-Identifier: CC-BY-NC-SA-4.0 -->
+<!-- 全体贡献者见 CONTRIBUTORS.md -->
+# 科大讯飞AI学习机玩机教程合集
 
 ## 项目说明
 
-本项目提供科大讯飞AI学习机各系列机型的破解教程，目标是将学习机改造为普通安卓平板使用。所有教程和资源均为免费提供。
+本项目提供科大讯飞AI学习机各系列机型的玩机教程，目标是将学习机改造为普通安卓平板使用。所有教程和资源均为免费提供。
 
 ## 风险警告
 
@@ -20,7 +24,7 @@
 | 处理器平台 | 教程文件 | 适用机型 |
 |-----------|---------|---------|
 | 紫光展锐（无SPRD4/Android 9） | [Unisoc_ud710.md](./Unisoc_ud710.md) | Z1, X2, X2Pro, X3Pro, T10, T20, C6, C8, SA30(P30、Q30), SA30Pro(S30、S30D), TX20(C10、C10S、C10Pro、A10)、Lumie10, Q10 |
-| 紫光展锐 UMS9620 | [unisoc_ums9620.md](./unisoc_ums9620.md) | T30Lite, Lumie10Pro, S30Turbo, P30Turbo, T90Lite |
+| 紫光展锐 UMS9620 | [unisoc_ums9620.md](./unisoc_ums9620.md) | T30Lite, Lumie10Pro, S30Turbo, P30Turbo, T90Lite, P90 |
 | 瑞芯微系列 | [rockchip.md](./rockchip.md) | T20Pro, T30Pro, T30Ultra, T90Pro |
 | 高通 骁龙系列 | [Qualcomm.md](./Qualcomm.md) | X1, X1Pro, P30-5G, X3-5G |
 
@@ -36,24 +40,20 @@
 
 | 资源 | 位置 |
 |------|------|
-| 紫光展锐驱动 | `配套文件/展讯/紫光驱动_R4.21.3201.zip` |
-| FDL 文件 | `配套文件/展讯/fdls/` 目录下对应芯片子目录 |
-| BL 解锁脚本（无SPRD4方案） | `配套文件/展讯/无SPRD4通用/`（含驱动、运行库、一键解锁） |
+| （展讯）科大讯飞工具箱 | https://github.com/iflytek-leaking/Unisoc_Toolbox/releases |
 | 高通 firehose 文件 | `files/firehoses/` 目录下对应机型子目录 |
 
-## 贡献者
+## 版权与许可
 
-- [@KawaiiSparkle](https://github.com/KawaiiSparkle) / [@qwqlemon2333](https://github.com/qwqlemon2333) / [@WalleoAndrew](https://github.com/WalleoAndrew) — 伪造apk更新包教程 + Root教程
-- [@Tomking062](https://github.com/TomKing062) — system-root 方案、spd_dump 改进版本、resign工作流
-- [@YedLeo1](https://github.com/YedLeo1) — T20 Pro 机型破解，现已退坑
-- [@KawaiiSparkle](https://github.com/KawaiiSparkle) / [@LYao2514](https://github.com/LYao2514) — 一键自动patch系统分区脚本，不过现在用不着WSL了，直接在Windows上拿MIO-KITCHEN灌入文件后通过改配置文件来等效chmod/chown
-- [@ig25138](https://github.com/ig25138) — T30 Pro 机型破解
-- [@misaka_pardola](https://github.com/misaka-pardola) — 技术支持
-- [酷安@某贼](http://www.coolapk.com/u/3463951) — 文件转存萤火虫资源站
+本项目由[IFLYTEK-LEAKING](https://github.com/IFLYTEK-LEAKING)开发，主要作者为[KawaiiSparkle](https://github.com/KawaiiSparkle)，全体贡献者见[CONTRIBUTORS.md](./CONTRIBUTORS.md) 。
+
+- `.py`、`.bat` 脚本、`.zip` 分发包、闭源二进制：PolyForm Noncommercial 1.0.0
+- `.md` 教程文档：CC BY-NC-SA 4.0
+- 禁止任何形式的商业性使用，包括但不限于倒卖、付费远程协助、打包售卖、付费社群传播等。
 
 ## 反馈与交流
-
 如遇问题，请进入科大硬破解交流群（入群审核）：1027759100并私聊管理员负责处理。
+当然开issue也是支持的。
 
 ## 捐赠
-> 如果我们项目帮到了你，欢迎通过发送你用不完的Kimi-V3/MiMO/Deepseek-v4/GLM-5.2的api端点及api-key到qwq0d000721@proton.me这个团队公用邮箱，以提高我们找靶点和修教程的效率。
+> 如果我们项目帮到了你，欢迎通过发送你用不完的api端点及api-key到qwq0d000721@proton.me这个团队公用邮箱，以提高我们找靶点和修教程的效率。

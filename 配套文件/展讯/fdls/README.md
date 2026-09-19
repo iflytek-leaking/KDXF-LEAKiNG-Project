@@ -1,3 +1,7 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 IFLYTEK-LEAKING -->
+<!-- SPDX-FileCopyrightText: 2024-2026 KawaiiSparkle -->
+<!-- SPDX-License-Identifier: CC-BY-NC-SA-4.0 -->
+<!-- 全体贡献者见 CONTRIBUTORS.md -->
 # FDL 文件使用说明
 
 ## 什么是 FDL 文件

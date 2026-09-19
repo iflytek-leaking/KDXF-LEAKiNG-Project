@@ -1,12 +1,16 @@
+<!-- SPDX-FileCopyrightText: 2024-2026 IFLYTEK-LEAKING -->
+<!-- SPDX-FileCopyrightText: 2024-2026 KawaiiSparkle -->
+<!-- SPDX-License-Identifier: CC-BY-NC-SA-4.0 -->
+<!-- 全体贡献者见 CONTRIBUTORS.md -->
 # 高通 (Qualcomm) 机型破解教程
 
 ## 适用机型
 
 | 机型 | 芯片 | Android 版本 | Firehose 文件位置 |
 |------|------|-------------|-------------------|
-| X1Pro (TYE100) | 骁龙 625 | Android 8.1 | `files/firehoses/x1pro/` |
-| P30 5G | 骁龙 750G | — | `files/firehoses/` |
-| X3 5G | 骁龙 750G | — | `files/firehoses/` |
+| X1Pro (TYE100) | 骁龙 625 | Android 8.1 | `配套文件/QCOM/firehose/625.mbn` |
+| P30 5G和X3 5G | 骁龙 750G | Android 11 | `配套文件/QCOM/firehose/750G.elf` |
+
 
 > **注意**：课堂版机型因不可抗力因素无法提供完整支持。
 
@@ -19,7 +23,7 @@
 | **硬件** | Windows 电脑、USB 数据线 |
 | **驱动** | 9008 驱动（原链接已失效，请自行搜索 "Qualcomm HS-USB QDLoader 9008 driver" 下载） |
 | **工具** | [高通工具箱](https://syxz.lanzoue.com/b01g1c7ve)（密码：`bulf`） |
-| **文件** | 对应机型的 firehose 文件（位于 `files/firehoses/` 目录） |
+| **文件** | 对应机型的 firehose 文件（位于 `配套文件/QCOM/firehose` 目录） |
 
 ---
 
@@ -106,7 +110,7 @@ fastboot boot ofrp.img
 
 ---
 
-## X1Pro (TYE100) 机型教程
+## X1Pro/X1 (TYE100) 机型教程
 
 X1Pro 使用骁龙 625 芯片，Firehose 文件位于 `files/firehoses/x1pro/` 目录。
 
