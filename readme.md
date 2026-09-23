@@ -23,8 +23,8 @@
 
 | 处理器平台 | 教程文件 | 适用机型 |
 |-----------|---------|---------|
-| 紫光展锐（无SPRD4/Android 9） | [Unisoc_ud710.md](./Unisoc_ud710.md) | Z1, X2, X2Pro, X3Pro, T10, T20, C6, C8, SA30(P30、Q30), SA30Pro(S30、S30D), TX20(C10、C10S、C10Pro、A10)、Lumie10, Q10 |
-| 紫光展锐 UMS9620 | [unisoc_ums9620.md](./unisoc_ums9620.md) | T30Lite, Lumie10Pro, S30Turbo, P30Turbo, T90Lite, P90 |
+| 紫光展锐（无SPRD4/Android 9） | [Unisoc_ud710.md](./Unisoc_ud710.md) | Z1, X2, X2Pro, X3Pro, T10, T20, C6, C8, SA30(P30、Q30), SA30Pro(S30、S30D), TX20(C10、C10S、C10Pro、A10)、Lumie10【未验证】, Q10 |
+| 紫光展锐 UMS9620 | [unisoc_ums9620.md](./unisoc_ums9620.md) | T30Lite, Lumie10Pro【未验证】, S30Turbo, P30Turbo, T90Lite, P90 |
 | 瑞芯微系列 | [rockchip.md](./rockchip.md) | T20Pro, T30Pro, T30Ultra, T90Pro, S90, S90Pro |
 | 高通 骁龙系列 | [Qualcomm.md](./Qualcomm.md) | X1, X1Pro, P30-5G, X3-5G |
 
