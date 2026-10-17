@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 # SPDX-FileCopyrightText: 2024-2026 IFLYTEK-LEAKING
 # SPDX-FileCopyrightText: 2024-2026 KawaiiSparkle
-# SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0
+# SPDX-License-Identifier: GPL-2.0-or-later
 # 全体贡献者见 CONTRIBUTORS.md
 """
 rkusb_nolimit.py -- remove the Rockchip rockusb 32 MiB read limit from a flash
