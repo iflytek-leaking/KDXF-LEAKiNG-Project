@@ -96,8 +96,9 @@ fastboot boot ofrp.img
 5. 重启设备，Magisk 将自动修补 boot 镜像
 
 ---
-
-### 第四步（可选）：刷回联想官方系统
+### 第四步：安装特制LSP模块进行破解
+同[UD710中此部分](https://github.com/iflytek-leaking/KDXF-LEAKiNG-Project/blob/main/Unisoc_ud710.md#%E6%96%B9%E6%A1%88-b%E4%BF%9D%E7%95%99%E5%AD%A6%E4%B9%A0%E5%8A%9F%E8%83%BD)
+### 第五步（可选）：刷回联想官方系统
 
 如果需要恢复为联想官方原版系统：
 
