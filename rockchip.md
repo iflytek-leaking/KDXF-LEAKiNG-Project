@@ -251,9 +251,4 @@ rktools st partition write --name <分区名> magisk_patched-xxxxx.img
 ## 第四阶段：清除来自于MDM/Framework的限制
 
 Root 拿到手，最后一步就是把系统里的软件安装、使用限制 给干掉，彻底「解锁」。
-
-1. 群里获取 **卷巨澜模块**（Magisk 模块包，`.zip` 格式）
-2. 把模块传到平板
-3. 打开 **Magisk** → 底部菜单「模块」→「从本地安装」
-4. 选中模块 `.zip` → 安装 → 重启
-5. 重启后 软件安装、使用限制应该被移除，Have Fun！
+具体步骤同 [UD710教程相同部分](https://github.com/iflytek-leaking/KDXF-LEAKiNG-Project/blob/main/Unisoc_ud710.md#%E6%96%B9%E6%A1%88-b%E4%BF%9D%E7%95%99%E5%AD%A6%E4%B9%A0%E5%8A%9F%E8%83%BD)
