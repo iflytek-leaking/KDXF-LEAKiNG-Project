@@ -24,7 +24,6 @@
 > **【Ud710 特别说明】** 科大讯飞所有 UD710 机型（chip0/chip1/chip2）的 SPRD4 深刷模式均被厂商阉割，无法通过标准的 开机 => kick to 1 / 2 => SPRD4 流程操作。但因此可以利用 spd_dump 的 `--kickto 1` 参数进入一个特殊的 Recovery 模式（屏幕黑屏但 ADB 开启，Aka. Cali-Mode），以此作为跳板进入 Bootloader 模式进行解锁。
 
 ---
-
 ## 第一步：准备工作
 
 1. 将本仓库克隆或下载到本地
@@ -163,7 +162,6 @@ Root 完成后，根据你的需求选择以下一种方案。
 
 1. 使用 MIO-KITCHEN 解包 system 镜像
 2. 删除以下目录/文件：
-   - `/system/priv-app/` 中所有 `Hardware` 开头的应用
    - `/system/priv-app/` 中所有 `Tye` 和 `IFly` 开头的应用（**保留** `Hwc`、`Iflytek Server`、`Iflytek Service`）
    - `/system/app/` 中所有 `Tye` 和 `IFly` 开头的应用（**保留** `IFlyIMESigned`）
 3. 添加第三方启动器和浏览器（推荐 **微软桌面 + Via** 组合，均在 Android 9 验证可用）：
@@ -190,13 +188,13 @@ reset
 ### 方案 B：保留学习功能
 
 Root 后，前往 iflytek-leaking QQ审核群（1027759100）并按照要求给予审核材料并在5分钟以内解答管理员提出的问题，成功后会被拉入正式群，你可通过群文件获取内部公开的公益破解模块，即可在保留学习功能的同时解除应用安装限制以及实现一些高级功能。
-
+> 这个破解模块现在已把核心实现给开源，在[RVS-rollupvastsurges-hwss](https://github.com/iflytek-leaking/RVS-rollupvastsurges-hwss)，技术用户可以自己写规则
 #### 前置依赖
 
 破解模块需要以下框架支持，请先安装：
 
 - **Zygisk-Next**（Magisk 模块，[下载地址](https://github.com/Dr-TSNG/ZygiskNext/releases/latest)）
-- **LSPosed/Vector**（[下载地址](https://github.com/JingMatrix/Vector/releases/latest)）
+- **LSPosed/Vector**（[Vector](https://github.com/JingMatrix/Vector/releases/latest)或[LSPosed](https://lsposed.zip)）
 
 #### 警告
 
