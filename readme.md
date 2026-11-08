@@ -47,7 +47,7 @@
 
 本项目由[IFLYTEK-LEAKING](https://github.com/IFLYTEK-LEAKING)开发，主要作者为[KawaiiSparkle](https://github.com/KawaiiSparkle)，全体贡献者见[CONTRIBUTORS.md](./CONTRIBUTORS.md) 。
 
-- `.py`、`.bat` 脚本、`.zip` 分发包、闭源二进制：PolyForm Noncommercial 1.0.0
+- `.bat` 脚本、`.zip` 分发包、闭源二进制：PolyForm Noncommercial 1.0.0
 - `.md` 教程文档：CC BY-NC-SA 4.0
 - 禁止任何形式的商业性使用，包括但不限于倒卖、付费远程协助、打包售卖、付费社群传播等。
 
