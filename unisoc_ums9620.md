@@ -67,26 +67,7 @@ OK，前置步骤完成。
 不管修补哪个，为防止只有50%的概率启动到有Root权限的情况，请把你修补分区的另一个槽位也用这个被修补后的数据覆盖
 自此，Root完成。
 ## 第五步：装模块破解
-由于实在没有安卓9那样的官方签名的原生无限制安装器来替换，这里要解除安装器（来自Framework的限制）和MDM那一堆限制就需要对系统进行hook才可以
-这个在IFLYTEK-LEAKING的QQ群里有已经做出来的实现：卷巨澜
-Root 后，前往 iflytek-leaking QQ审核群（1027759100）并按照要求给予审核材料并在5分钟以内解答管理员提出的问题，成功后会被拉入正式群，你可通过群文件获取内部公开的公益破解模块，即可在保留学习功能的同时解除应用安装限制以及实现一些高级功能。
-
-#### 前置依赖
-
-破解模块需要以下框架支持，请先安装：
-
-- **Zygisk-Next**（Magisk 模块，[下载地址](https://github.com/Dr-TSNG/ZygiskNext/releases/latest)）
-- **LSPosed/Vector**（[下载地址](https://github.com/JingMatrix/Vector/releases/latest)）
-
-#### 警告
-
-> **【严正声明】** 本模块为内部公益项目，仅供授权用户使用。如检测到未经授权的分发行为，我们将：
-> - 公开泄露者的所有信息
-> - 与所有合作科大群联动，将泄露者的信息列入黑名单
-> - 在其他圈子传播其恶劣行径
->
-> 请尊重开发者的劳动成果。
----
+步骤同[UD710这一部分](https://github.com/iflytek-leaking/KDXF-LEAKiNG-Project/blob/main/Unisoc_ud710.md#%E6%96%B9%E6%A1%88-b%E4%BF%9D%E7%95%99%E5%AD%A6%E4%B9%A0%E5%8A%9F%E8%83%BD)
 
 ## 常用 spd_dump 命令速查
 
